@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>OpenAI GPT-3 Chatbot Cost Calculator</title>
-  <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css"> 
+  <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -22,53 +23,84 @@
     
     <section>
       <form id="calculatorForm">
-        <label for="promptSize">Static prompt size:</label>
-        <input type="number" name="promptSize" value="200">
+        <div class="form-group">
+          <label for="promptSize">Static prompt size</label>
+          <input type="number" name="promptSize" value="200">
+          <div class="info"> 
+            The text often injected into the prompt along with the user's message before it gets sent to OpenAI.
+          </div>
+        </div>
 
-        <label for="inputSize">Average input size:</label>
-        <input type="number" name="inputSize" value="50">
+        <div class="form-group">
+          <label for="inputSize">Average input size:</label>
+          <input type="number" name="inputSize" value="50">
+          <div class="info"> 
+            The average size of a user's message to the chatbot.
+          </div>
+        </div>
 
-        <label for="maxToken">Max tokens:</label>
-        <input type="number" name="maxToken" value="300">
+        <div class="form-group">
+          <label for="maxToken">Max tokens:</label>
+          <input type="number" name="maxToken" value="300">
+          <div class="info">
+            The maximum number of tokens that can be sent to the chatbot.
+          </div>
+          </div>
+        </div>
 
-        <p>
+        <div class="calculation-box">
           <b>Calculated response size:</b><br />
           <span id="responseSize">Calculating...</span>
-        </p>
+          <div class="info">
+            This is calculated by subtracting the static prompt size and average input from the max tokens to determine what is left over for the OpenAI response. If you don't leave enough space for the OpenAI response, the chatbot response will often just be chopped short.
+          </div>
+        </div>
 
-        <label for="interactionSize">Interactions per conversation:</label>
-        <input type="number" name="interactionSize" value="10">
+        <div class="form-group">
+          <label for="interactionSize">Interactions per conversation:</label>
+          <input type="number" name="interactionSize" value="10">
+        </div>
 
-        <label for="conversationSize">Conversations per day:</label>
-        <input type="number" name="conversationSize" value="10">
+        <div class="form-group">
+          <label for="conversationSize">Conversations per day:</label>
+          <input type="number" name="conversationSize" value="10">
+        </div>
 
-        <label for="languageModel">Model:</label>
-        <select name="languageModel">
-          <option value="davinci" selected>Davinci</option>
-          <option value="currie">Currie</option>
-          <option value="babbage">Babbage</option>
-          <option value="ada">ADA</option>
-        </select>
+        <div class="form-group">
+          <label for="languageModel">Model:</label>
+          <select name="languageModel">
+            <option value="davinci" selected>Davinci</option>
+            <option value="currie">Currie</option>
+            <option value="babbage">Babbage</option>
+            <option value="ada">ADA</option>
+          </select>
+          <div class="info">
+            Available models and the associated pricing can be found here: <a href="https://openai.com/api/pricing/">https://openai.com/api/pricing/</a>
+          </div>
+        </div>
 
         <!-- A table with a header column using the following values: interactions per day, cost per interaction, monthly cost -->
-        <table>
-          <tr>
-            <th>Interactions per day</th>
-            <td id="calculatedInteractionsCount">Calculating...</td>
-          </tr>
-          <tr>
-            <th>Cost per interaction</th>
-            <td id="calculatedInteractionsCost">Calculating...</td>
-          </tr>
-          <tr>
-            <th>Monthly interactions</th>
-            <td id="monthlyInteractions">Calculating...</td>
-          </tr>
-          <tr>
-            <th>Monthly cost</th>
-            <td id="calculatedMonthlyCost">Calculating...</td>
-          </tr>
-        </table>
+        <div class="calculation-box">
+          <b>Calculated monthly usage and costs:</b><br />
+          <table>
+            <tr>
+              <th>Interactions per day</th>
+              <td id="calculatedInteractionsCount">Calculating...</td>
+            </tr>
+            <tr>
+              <th>Cost per interaction</th>
+              <td id="calculatedInteractionsCost">Calculating...</td>
+            </tr>
+            <tr>
+              <th>Monthly interactions</th>
+              <td id="monthlyInteractions">Calculating...</td>
+            </tr>
+            <tr>
+              <th>Monthly cost</th>
+              <td id="calculatedMonthlyCost">Calculating...</td>
+            </tr>
+          </table>
+        </div>
       </form>
     </section>
 

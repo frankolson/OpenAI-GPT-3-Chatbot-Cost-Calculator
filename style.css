@@ -1,4 +1,25 @@
+:root {
+/*   --width-card: 500px; */
+}
+
 html, body {
   height: 100%;
   width: 100%;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.info {
+  color: #6c757d;
+  font-size: 12px;
+}
+
+.calculation-box {
+  border-radius: 5px;
+  border: 1px solid #17a2b8;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
