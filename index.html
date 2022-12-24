@@ -24,32 +24,32 @@
     <section>
       <form id="calculatorForm">
         <div class="form-group">
-          <label for="promptSize">Static prompt size</label>
+          <label for="promptSize">Static prompt tokens:</label>
           <input type="number" name="promptSize" value="200">
           <div class="info"> 
-            The text often injected into the prompt along with the user's message before it gets sent to OpenAI.
+            The number of tokens for the text often injected into the prompt along with the user's message before it gets sent to OpenAI.
           </div>
         </div>
 
         <div class="form-group">
-          <label for="inputSize">Average input size:</label>
+          <label for="inputSize">Average user tokens:</label>
           <input type="number" name="inputSize" value="50">
           <div class="info"> 
-            The average size of a user's message to the chatbot.
+            The average tokens of a user's message to the chatbot.
           </div>
         </div>
 
         <div class="form-group">
-          <label for="maxToken">Max tokens:</label>
+          <label for="maxToken">Max total tokens:</label>
           <input type="number" name="maxToken" value="300">
           <div class="info">
-            The maximum number of tokens that can be sent to the chatbot.
+            The maximum number of tokens that will be processed by the OpenAI API. This is a sum of the prompt, user, and response token count.
           </div>
           </div>
         </div>
 
         <div class="calculation-box">
-          <b>Calculated response size:</b><br />
+          <b>Calculated response tokens:</b><br />
           <span id="responseSize">Calculating...</span>
           <div class="info">
             This is calculated by subtracting the static prompt size and average input from the max tokens to determine what is left over for the OpenAI response. If you don't leave enough space for the OpenAI response, the chatbot response will often just be chopped short.
@@ -59,23 +59,29 @@
         <div class="form-group">
           <label for="interactionSize">Interactions per conversation:</label>
           <input type="number" name="interactionSize" value="10">
+          <div class="info">
+            An interacton is a single user message to the chatbot plus the chatbot's response. This field is the average length of a single converstaion with the chatbot.
+          </div>
         </div>
 
         <div class="form-group">
           <label for="conversationSize">Conversations per day:</label>
           <input type="number" name="conversationSize" value="10">
+          <div class="info">
+            This is how many times a chatbot will be used in a single day.
+          </div>
         </div>
 
         <div class="form-group">
           <label for="languageModel">Model:</label>
           <select name="languageModel">
-            <option value="davinci" selected>Davinci</option>
-            <option value="currie">Currie</option>
-            <option value="babbage">Babbage</option>
-            <option value="ada">ADA</option>
+            <option value="davinci" selected>Davinci ($0.02 / 1k tokens)</option>
+            <option value="currie">Currie ($0.002 / 1k tokens)</option>
+            <option value="babbage">Babbage ($0.0005 / 1k tokens)</option>
+            <option value="ada">Ada ($0.0004 / 1k tokens)</option>
           </select>
           <div class="info">
-            Available models and the associated pricing can be found here: <a href="https://openai.com/api/pricing/">https://openai.com/api/pricing/</a>
+            More information on the available models and their associated pricing can be found here: <a href="https://openai.com/api/pricing/">https://openai.com/api/pricing/</a>
           </div>
         </div>
 
