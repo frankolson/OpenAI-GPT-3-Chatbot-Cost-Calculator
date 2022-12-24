@@ -2,6 +2,10 @@
   --width-card: 400px;
 }
 
+section {
+  align-items: flex-start;
+}
+
 html, body {
   height: 100%;
   width: 100%;
