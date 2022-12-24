@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>OpenAI GPT-3 Chatbot Cost Calculator</title>
+  <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css"> 
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <main>
+    <section>
+      <header>
+        <h1>OpenAI GPT-3 Chatbot Cost Calculator</h1>
+        <p>
+          A tool for estimating the costs incurred from OpenAI charges using the GPT-3 model for a chatbot.
+        </p>
+      </header>
+    </section>
+    
+    <section>
+      <form id="calculatorForm">
+        <label for="promptSize">Static prompt size:</label>
+        <input type="number" name="promptSize" value="200">
+
+        <label for="inputSize">Average input size:</label>
+        <input type="number" name="inputSize" value="50">
+
+        <label for="maxToken">Max tokens:</label>
+        <input type="number" name="maxToken" value="300">
+
+        <p>
+          <b>Calculated response size:</b><br />
+          <span id="responseSize">Calculating...</span>
+        </p>
+
+        <label for="interactionSize">Interactions per conversation:</label>
+        <input type="number" name="interactionSize" value="10">
+
+        <label for="conversationSize">Conversations per day:</label>
+        <input type="number" name="conversationSize" value="10">
+
+        <label for="languageModel">Model:</label>
+        <select name="languageModel">
+          <option value="davinci" selected>Davinci</option>
+          <option value="currie">Currie</option>
+          <option value="babbage">Babbage</option>
+          <option value="ada">ADA</option>
+        </select>
+
+        <!-- A table with a header column using the following values: interactions per day, cost per interaction, monthly cost -->
+        <table>
+          <tr>
+            <th>Interactions per day</th>
+            <td id="calculatedInteractionsCount">Calculating...</td>
+          </tr>
+          <tr>
+            <th>Cost per interaction</th>
+            <td id="calculatedInteractionsCost">Calculating...</td>
+          </tr>
+          <tr>
+            <th>Monthly interactions</th>
+            <td id="monthlyInteractions">Calculating...</td>
+          </tr>
+          <tr>
+            <th>Monthly cost</th>
+            <td id="calculatedMonthlyCost">Calculating...</td>
+          </tr>
+        </table>
+      </form>
+    </section>
+
+    <section>
+      <aside>
+        <h2>Conversation example</h2>
+
+        <div id="conversationExample">
+          <p>
+            Calculating...
+          </p>
+        </div>
+      </aside>
+
+      <aside>
+        <h2>Conversation with static prompt example</h2>
+
+        <div id="conversationPromptExample">
+          <p>
+            Calculating...
+          </p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+<!--   <script src="https://unpkg.com/jquery@1.12/dist/jquery.min.js"></script> -->
+  <script type="module" src="script.js"></script>
+
+ <!--
+  This script places a badge on your repl's full-browser view back to your repl's cover
+  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
+  teal, blue, blurple, magenta, pink!
+  -->
+  <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script> 
+
+<!-- import local script using modules -->
+  
+</body>
+
+</html>
