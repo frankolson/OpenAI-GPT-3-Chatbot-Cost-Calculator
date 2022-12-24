@@ -86,12 +86,12 @@ $(document).ready(function() {
     var inputSize = parseInt($('input[name="inputSize"]').val());
     var promptSize = parseInt($('input[name="promptSize"]').val());
     var responseSize = calculateResponseSize();
-    var conversationSize = parseInt($('input[name="conversationSize"]').val());
+    var interactionSize = parseInt($('input[name="interactionSize"]').val());
 
     // create an array of generated conversations
     var generatedConversations = [];
     var generatedSubmissions = [];
-    for (var i = 0; i < conversationSize; i++) {
+    for (var i = 0; i < interactionSize; i++) {
       var example = generateInteraction(inputSize, promptSize, responseSize);
       // create an html element for the generated conversation
       var generatedConversation = $(`<div><p><b>You:</b><br />${example.input}</p><p><b>Chatbot:</b><br />${example.response}</p></div>`)
